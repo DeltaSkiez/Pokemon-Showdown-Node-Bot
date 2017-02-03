@@ -56,7 +56,7 @@ exports.getEffect = function (effect, gen) {
 };
 
 exports.getPokemon = exports.getTemplate = function (poke, gen) {
-	if (!gen || gen > 6 || gen < 1) gen = 6;
+	if (!gen || gen > 7 || gen < 1) gen = 7;
 	poke = toId(poke || "");
 	var pokemon = {};
 	var temp;
@@ -104,7 +104,7 @@ exports.getMove = function (move, gen) {
 		temp = DataDownloader.getMovedex()[move];
 		for (var i in temp) moveData[i] = temp[i];
 	} catch (e) {}
-	for (var i = 5; i >= gen; i--) {
+	for (var i = 6; i >= gen; i--) {
 		try {
 			temp = require(BAT_DATA_DIR + "gen" + i + "/moves.js").BattleMovedex[move];
 			if (!temp) continue;
@@ -139,7 +139,7 @@ exports.getMove = function (move, gen) {
 };
 
 exports.getItem = function (item, gen) {
-	if (!gen || gen > 6 || gen < 1) gen = 6;
+	if (!gen || gen > 7 || gen < 1) gen = 7;
 	item = toId(item || "");
 	var itemData = {};
 	var temp;
@@ -147,7 +147,7 @@ exports.getItem = function (item, gen) {
 		temp = DataDownloader.getItems()[item];
 		for (var i in temp) itemData[i] = temp[i];
 	} catch (e) {}
-	for (var i = 5; i >= gen; i--) {
+	for (var i = 6; i >= gen; i--) {
 		try {
 			temp = require(BAT_DATA_DIR + "gen" + i + "/items.js").BattleItems[item];
 			if (!temp) continue;
@@ -177,7 +177,7 @@ exports.getItem = function (item, gen) {
 };
 
 exports.getAbility = function (ab, gen) {
-	if (!gen || gen > 6 || gen < 1) gen = 6;
+	if (!gen || gen > 7 || gen < 1) gen = 7;
 	ab = toId(ab || "");
 	var ability = {};
 	var temp;
@@ -185,7 +185,7 @@ exports.getAbility = function (ab, gen) {
 		temp = DataDownloader.getAbilities()[ab];
 		for (var i in temp) ability[i] = temp[i];
 	} catch (e) {}
-	for (var i = 5; i >= gen; i--) {
+	for (var i = 6; i >= gen; i--) {
 		try {
 			temp = require(BAT_DATA_DIR + "gen" + i + "/abilities.js").BattleAbilities[ab];
 			if (!temp) continue;
@@ -437,7 +437,7 @@ exports.Player = (function () {
 })();
 
 exports.getFormatsData = function (gen) {
-	if (!gen || gen > 6 || gen < 1) gen = 6;
+	if (!gen || gen > 7 || gen < 1) gen = 7;
 	try {
 		return require(BAT_DATA_DIR + "gen" + gen + "/formats-data.js").BattleFormatsData;
 	} catch (e) {
