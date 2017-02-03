@@ -10,7 +10,7 @@ var data = exports.data = [
 		file: "formats.js"
 	},
 	{
-		url: "https://raw.githubusercontent.com/Zarel/Pokemon-Showdown/master/data/formats-data.js",
+		url: "https://play.pokemonshowdown.com/data/formats-data.js",
 		file: "formats-data.js"
 	},
 	{
@@ -30,8 +30,8 @@ var data = exports.data = [
 		file: "items.js"
 	},
 	{
-		url: "https://play.pokemonshowdown.com/data/learnsets-g6.js?" + datenow,
-		file: "learnsets-g6.js"
+		url: "https://play.pokemonshowdown.com/data/learnsets.js?" + datenow,
+		file: "learnsets.js"
 	},
 	{
 		url: "https://play.pokemonshowdown.com/data/aliases.js?" + datenow,
@@ -117,5 +117,5 @@ exports.getFormatsData = function () {
 };
 
 exports.getLearnsets = function () {
-	return require("./data/learnsets-g6.js").BattleLearnsets;
+	return require("./data/learnsets.js").BattleLearnsets;
 };
