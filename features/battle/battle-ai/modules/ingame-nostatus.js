@@ -148,6 +148,12 @@ function evaluateMoveDecision (battle, desEnv, des, act) {
 	var p = battle.request.side.pokemon[act];
 	var a = battle.request.active[act];
 	var move = Data.getMove(p.moves[des.moveId]);
+	if (des.zmove) {
+		var zmove = Data.getMove(des.move);
+		if (zmove.basePower === 1) zmove.basePower = move.zMovePower || 0;
+		zmove.category = move.category;
+		move = zmove;
+	}
 
 	if (move.category === "Status") return 0;
 	if (BadMoves.indexOf(move.id) >= 0) return 0;
